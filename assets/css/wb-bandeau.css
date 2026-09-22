@@ -1,0 +1,103 @@
+.wb-bandeau {
+	position: relative;
+	width: 100%;
+	background: var(--wb-bg, #1d2327);
+	color: var(--wb-text, #ffffff);
+	font-size: 0.9rem;
+	line-height: 1.4;
+	padding: 0.6em 2.4em 0.6em 1em;
+	box-sizing: border-box;
+	overflow: hidden;
+	z-index: 9999;
+}
+
+.wb-bandeau,
+.wb-bandeau a {
+	color: var(--wb-text, #ffffff);
+}
+
+.wb-bandeau-track {
+	position: relative;
+	min-height: 1.4em;
+	text-align: center;
+}
+
+.wb-bandeau-message {
+	width: 100%;
+}
+
+/* Une seule annonce : toujours visible, pas d'animation nécessaire. */
+.wb-bandeau-track[data-wb-count="1"] .wb-bandeau-message {
+	position: relative;
+	opacity: 1;
+}
+
+/* Plusieurs annonces : positionnement en pile + rotation animée. */
+.wb-bandeau-track[data-wb-count="2"] .wb-bandeau-message,
+.wb-bandeau-track[data-wb-count="3"] .wb-bandeau-message {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+}
+
+.wb-bandeau-track[data-wb-count="2"] .wb-bandeau-message {
+	animation-name: wb-fade-2;
+}
+
+.wb-bandeau-track[data-wb-count="3"] .wb-bandeau-message {
+	animation-name: wb-fade-3;
+}
+
+@keyframes wb-fade-2 {
+	0%, 4% { opacity: 1; }
+	46%, 100% { opacity: 0; }
+}
+
+@keyframes wb-fade-3 {
+	0%, 3% { opacity: 1; }
+	31%, 100% { opacity: 0; }
+}
+
+.wb-bandeau-link {
+	margin-left: 0.5em;
+	text-decoration: underline;
+	white-space: nowrap;
+}
+
+.wb-bandeau-close {
+	position: absolute;
+	top: 50%;
+	right: 0.6em;
+	transform: translateY(-50%);
+	background: transparent;
+	border: 0;
+	color: inherit;
+	font-size: 1.4rem;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0.1em 0.4em;
+}
+
+.wb-bandeau-close:hover,
+.wb-bandeau-close:focus {
+	opacity: 0.75;
+}
+
+.wb-bandeau.wb-bandeau-hidden {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wb-bandeau-track[data-wb-count="2"] .wb-bandeau-message,
+	.wb-bandeau-track[data-wb-count="3"] .wb-bandeau-message {
+		animation: none;
+		position: relative;
+		opacity: 1;
+		display: block;
+	}
+}
