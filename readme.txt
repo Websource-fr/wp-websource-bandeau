@@ -4,7 +4,7 @@ Tags: bandeau, announcement bar, promo, bannière
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,7 +39,14 @@ Non, le script front-end (`assets/js/wb-bandeau.js`) est écrit en JavaScript na
 
 Configurable dans les réglages ("Ne pas réafficher pendant (jours)"), 1 jour par défaut. La valeur 0 le mémorise indéfiniment, jusqu'à ce que le visiteur vide le stockage local de son navigateur.
 
+= Que fait l'encart « Besoin d'aller plus loin ? » dans l'administration ? =
+
+Il propose aux administrateurs (capacité `manage_options`), uniquement sur l'écran principal du plugin, de contacter Websource, l'agence éditrice, pour un accompagnement sur mesure. Il n'apparaît jamais sur le site public ni dans les e-mails, se masque pour 30 jours par utilisateur (bouton « Masquer ») et ne fait aucune requête externe. Seul un clic sur « Nous contacter » ou « Prendre rendez-vous » ouvre le site websource.fr, avec dans l'adresse le nom du plugin, sa version, la version de WordPress et l'adresse de votre site (domaine uniquement) pour faciliter la réponse de Websource.
+
 == Changelog ==
+
+= 1.1.0 =
+* Nouveau : encart « Besoin d'aller plus loin ? » (accompagnement Websource) sur l'écran principal du plugin, réservé aux administrateurs, masquable 30 jours par utilisateur. Au clic sur « Nous contacter » / « Prendre rendez-vous », le nom et la version du plugin, la version de WordPress et le domaine du site sont transmis à Websource via l'URL (paramètres utm_* et ws_*). Aucune requête externe automatique.
 
 = 1.0.0 =
 * Version initiale.

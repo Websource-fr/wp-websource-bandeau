@@ -103,4 +103,6 @@ while ( count( $messages ) < 3 ) {
 		<?php esc_html_e( 'Le bandeau s’affiche automatiquement via le hook wp_body_open(). Si votre thème ne l’appelle pas, ajoutez ceci juste après la balise <body> de header.php :', 'websource-bandeau' ); ?>
 	</p>
 	<pre>&lt;?php do_action( 'websource_bandeau_render' ); ?&gt;</pre>
+
+	<?php WB_Support_Box::render(); ?>
 </div>

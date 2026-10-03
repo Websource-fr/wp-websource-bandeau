@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       WebsourceBandeau
- * Plugin URI:        https://www.websource.fr/
+ * Plugin URI:        https://www.websource.fr/modules-wordpress/module-bandeau-promotionnel-defilant-wordpress
  * Description:       Bandeau promotionnel défilant, pleine largeur, au-dessus de l'en-tête du site, avec jusqu'à 3 messages configurables, rotation automatique et fermeture mémorisée par le visiteur.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.0
  * Requires PHP:      8.1
  * Author:            Websource
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WB_VERSION', '1.0.0' );
+define( 'WB_VERSION', '1.1.0' );
 define( 'WB_PLUGIN_FILE', __FILE__ );
 define( 'WB_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -39,6 +39,8 @@ function wb_init_plugin(): void {
 	if ( is_admin() ) {
 		require_once WB_PLUGIN_DIR . 'admin/class-wb-admin.php';
 		WB_Admin::init();
+		require_once WB_PLUGIN_DIR . 'admin/class-wb-support-box.php';
+		WB_Support_Box::init();
 	}
 }
 add_action( 'plugins_loaded', 'wb_init_plugin' );
